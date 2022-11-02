@@ -36,14 +36,15 @@ class BlogPostController extends Controller
         $imgName = hexdec(uniqid()).'.'.$imgPost->getClientOriginalExtension();
         $imgUrl = 'upload/post/'.$imgName;
 
-        Image::make($imgPost)->resize(430,327)->save('upload/post/'.$imgUrl);
+        Image::make($imgPost)->resize(430,327)->save($imgUrl);
+        
         
 
         BlogPost::insert([
             'category_id' => $request->post_category_id,
             'title' => $request->post_title,
             'tags' => $request->post_tags,
-            'img' => $imgUrl,
+            'image' => $imgUrl,
             'description' => $request->post_description,
             'created_at' => Carbon::now(),
         ]);
@@ -54,7 +55,7 @@ class BlogPostController extends Controller
             'alert-type' => 'success'
         ];
 
-        return redirect()->route('admin.blog_post.blog_post_all')->with($notifications);
+        return redirect()->route('all.blog.post')->with($notifications);
 
     }
 }
