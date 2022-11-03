@@ -38,8 +38,6 @@ class BlogPostController extends Controller
 
         Image::make($imgPost)->resize(430,327)->save($imgUrl);
         
-        
-
         BlogPost::insert([
             'category_id' => $request->post_category_id,
             'title' => $request->post_title,
@@ -57,5 +55,12 @@ class BlogPostController extends Controller
 
         return redirect()->route('all.blog.post')->with($notifications);
 
+    }
+
+    public function EditBlogPost($id){
+
+        $post = BlogPost::findOrFail($id);
+        $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+        return view('admin.blog_post.blog_post_edit',compact('post','categories'));
     }
 }
