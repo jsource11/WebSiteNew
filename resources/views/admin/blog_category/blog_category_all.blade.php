@@ -29,6 +29,8 @@
                                 <tr>
                                 <th>Id</th>
                                 <th>Nombre de Categoría</th> 
+                                <th>Fecha Creación</th>
+                                <th>Fecha Actualización</th>
                                 <th>Acciones</th>
                                 
                             </thead>
@@ -40,6 +42,8 @@
                                     <tr>
                                         <td> {{ $key+1}} </td>
                                         <td> {{ $item->blog_category }} </td> 
+                                        <td> {{ $item->created_at }} </td>
+                                        <td> {{ $item->updated_at }} </td>
                                         
                                         <td>
                                             <a href="{{ route('edit.blog.category',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>

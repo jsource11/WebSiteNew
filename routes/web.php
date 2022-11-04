@@ -55,7 +55,7 @@ Route::controller(BlogPostController::class)->group(function(){
     Route::post('/store/post','StorePost')->name('store.blog.post');
 
     Route::get('/edit/post/{Blog}','EditBlogPost')->name('edit.blog.post');
-
+    Route::post('/update/blog/post','UpdateBlogPost')->name('update.blog.post');
     
     Route::get('/delete/post/{id}','DeleteBlogPost')->name('delete.blog.post');
 

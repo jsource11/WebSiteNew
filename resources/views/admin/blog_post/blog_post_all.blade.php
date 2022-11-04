@@ -28,6 +28,8 @@
                                     <th>Categoría</th>
                                     <th>Título</th>
                                     <th>Tags</th>
+                                    <th>Fecha Creación</th>
+                                    <th>Fecha Actualización</th>
                                     <th>Imagen</th>
                                     <th>Acciones</th>
                                 </thead>
@@ -39,6 +41,8 @@
                                             <td> {{ $item['category']['blog_category'] }} </td>
                                             <td> {{ $item->title }} </td>
                                             <td> {{ $item->tags }} </td>
+                                            <td> {{ $item->created_at->diffForHumans() }} </td>
+                                            <td> {{ !empty($item->updated_at) ? $item->updated_at->diffForHumans(): $item->updated_at }} </td>
                                             <td> <img src="{{ asset($item->image) }}" style="width: 60px; height: 50px;"> </td>
                                             <td>
                                                 <a href="{{ route('edit.blog.post',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>

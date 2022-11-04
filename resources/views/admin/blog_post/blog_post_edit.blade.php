@@ -19,8 +19,10 @@
 
                             <h4 class="card-title">Editar Post - Blog </h4>
 
-                            <form method="post" action="{{ route('edit.blog.post',$post->id) }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('update.blog.post') }}" enctype="multipart/form-data">
                                 @csrf
+
+                                <input type="hidden" name="id" value="{{ $post->id }}">
 
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Categorías</label>
@@ -39,8 +41,8 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Título </label>
                                     <div class="col-sm-10">
                                         <input name="post_title" class="form-control" type="text" id="example-text-input" value="{{ $post->title }}">
-                                        @error('blog_title')
-                                        <span class="text-danger"> {{ $message }} </span>
+                                        @error('post_title')
+                                            <span class="text-danger"> {{ $message }} </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -49,7 +51,7 @@
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Etiquetas</label>
                                     <div class="col-sm-10">
-                                        <input name="post_tags" value="linux,open-source" class="form-control" type="text" data-role="tagsinput" value="{{ $post->tags }}"> 
+                                        <input name="post_tags" class="form-control" type="text" data-role="tagsinput" value="{{ $post->tags }}"> 
                                     </div>
                                 </div>
                                 <!-- end row -->

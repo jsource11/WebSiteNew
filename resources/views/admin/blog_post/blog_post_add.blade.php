@@ -39,7 +39,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Título </label>
                                     <div class="col-sm-10">
                                         <input name="post_title" class="form-control" type="text" id="example-text-input">
-                                        @error('blog_title')
+                                        @error('post_title')
                                         <span class="text-danger"> {{ $message }} </span>
                                         @enderror
                                     </div>
