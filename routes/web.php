@@ -17,7 +17,7 @@ use App\Http\Controllers\Home\BlogPostController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/dashboard', function () {
@@ -61,5 +61,6 @@ Route::controller(BlogPostController::class)->group(function(){
 
     
 });
+
 
 require __DIR__.'/auth.php';
